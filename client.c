@@ -28,7 +28,6 @@ int main(int argc, char const **argv) {
     if (argc == 2) {
         //tcp://0.tcp.ngrok.io:15991
         sscanf(argv[1], "%99[a-z]://%99[a-zA-Z0-9.]:%d", protocol, hostname, &port);
-        printf("%s\n", hostname);
     } else if (argc == 3) {
         strcpy(hostname, argv[1]);
         port = atoi(argv[2]);
@@ -44,7 +43,6 @@ int main(int argc, char const **argv) {
             return -1;
         }
     }
-    printf("ip: %s, port: %d\n", ip, port);
 
     // create socket
     if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
@@ -113,7 +111,6 @@ int resolve_host(char *ip, char *hostname) {
     struct in_addr **addr_list;
     int i;
 
-    printf("hostname to parse: %s\n", hostname);
     if ((he = gethostbyname(hostname)) == NULL) {
         herror("get host name");
         return 1;
