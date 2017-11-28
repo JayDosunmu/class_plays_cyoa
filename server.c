@@ -147,12 +147,16 @@ int main(int argc, char **argv)
                 } else {
                     // if a non-zero value of bytes are read, it is an incoming message. Use store_command
                     // to handle it
-                    store_command(buffer);
-                    printf("An adventurer has chosen: %s\n", buffer);
+                    if(fork() == 0){
+                        store_command(buffer);
+                        printf("An adventurer has chosen: %s\n", buffer);
 
-                    // respond to acknowledge
-                    if (send(new_socket, response, strlen(response), 0) != strlen(response)) {
-                        perror("send");
+                        // respond to acknowledge
+                        if (send(new_socket, response, strlen(response), 0) != strlen(response)) {
+                            perror("send");
+                        }
+
+                        _Exit(EXIT_SUCCESS);
                     }
                 }
             }
