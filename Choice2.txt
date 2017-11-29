@@ -1,2 +1,0 @@
-A:Agree:3
-B:Disagree:2

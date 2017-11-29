@@ -1,3 +1,0 @@
-A:Talk:1
-B:Attack:1
-C:Run:1
