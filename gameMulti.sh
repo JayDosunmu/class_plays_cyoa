@@ -11,6 +11,7 @@ event=1
 name=0
 death=0
 continue=1
+file=commands
 
 while [ $continue -eq 1 ]; ## main loop, to allow for multiple endings
 do
@@ -60,9 +61,9 @@ do
 
 	#Logic for choice:
 	#A, B, and C grab the number of votes each got from the server text file.
-	A=`cat test.txt | grep 'A' | wc -l`
-	B=`cat test.txt | grep 'B' | wc -l`
-	C=`cat test.txt | grep 'C' | wc -l`
+	A=`cat "$file" | grep 'A' | wc -l`
+	B=`cat "$file" | grep 'B' | wc -l`
+	C=`cat "$file" | grep 'C' | wc -l`
 
 	echo “Votes total:”
 	echo A: $A
@@ -97,7 +98,7 @@ do
 	fi
 
 	# To clear test.txt for running program, remove comment on next line
-	# >test.txt
+	>"$file"
 
 	#reset temp to 0 to avoid unseen errors
 	temp=0
