@@ -152,9 +152,9 @@ int main(int argc, char **argv)
                         printf("An adventurer has chosen: %s\n", buffer);
 
                         // respond to acknowledge
-                        if (send(new_socket, response, strlen(response), 0) != strlen(response)) {
-                            perror("send");
-                        }
+                        // if (send(new_socket, response, strlen(response), 0) != strlen(response)) {
+                        //     perror("send");
+                        // }
 
                         _Exit(EXIT_SUCCESS);
                     }

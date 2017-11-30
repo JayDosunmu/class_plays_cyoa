@@ -81,8 +81,8 @@ int main(int argc, char const **argv) {
         send(sock, msg, strlen(msg), 0);
 
         // read acknowledgement from server
-        valread = read(sock, buffer, 1025);
-        printf("%s\n", buffer);
+        // valread = read(sock, buffer, 1025);
+        printf("%s\n", "The Fates have seen your choice...");
     }
 
     // close socket to clean up after program (alerts server that this connection has been terminated)
