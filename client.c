@@ -68,8 +68,8 @@ int main(int argc, char const **argv) {
 
     while (1) {
         // clear buffers
-        memset(msg, 0, msgSize);
-        memset(buffer, 0, bufferSize);
+        memset(msg, 0, 8*sizeof(msgSize));
+        memset(buffer, 0, 8*sizeof(bufferSize));
 
         // read input from user
         get_input(msg);
